@@ -21,6 +21,10 @@
         "title": "Agent Monitor: Show Dashboard"
       },
       {
+        "command": "vscode-agent-monitor.showEventBrowser",
+        "title": "Agent Monitor: Browse Events"
+      },
+      {
         "command": "vscode-agent-monitor.showLogs",
         "title": "Agent Monitor: Show Logs"
       },

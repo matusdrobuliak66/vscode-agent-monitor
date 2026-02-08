@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { execSync } from 'child_process';
 import { LSPCaptureManager } from './lspCapture';
+import { EventBrowserPanel } from './eventBrowser';
 
 let currentPanel: vscode.WebviewPanel | undefined = undefined;
 let captureManager: LSPCaptureManager | undefined = undefined;
@@ -47,6 +48,24 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
+    // Register command to show event browser
+    let showEventBrowser = vscode.commands.registerCommand('vscode-agent-monitor.showEventBrowser', () => {
+        const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+        if (!workspaceFolder) {
+            vscode.window.showErrorMessage('No workspace folder open');
+            return;
+        }
+
+        const dbPath = path.join(workspaceFolder.uri.fsPath, 'agent_telemetry.db');
+
+        if (!fs.existsSync(dbPath)) {
+            vscode.window.showWarningMessage('No telemetry data yet. Start coding to capture events!');
+            return;
+        }
+
+        EventBrowserPanel.show(dbPath, context.extensionPath);
+    });
+
     // Register command to clear data
     let clearData = vscode.commands.registerCommand('vscode-agent-monitor.clearData', () => {
         const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
@@ -68,6 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(showDashboard);
     context.subscriptions.push(showLogs);
+    context.subscriptions.push(showEventBrowser);
     context.subscriptions.push(clearData);
 }
 

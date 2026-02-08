@@ -307,8 +307,8 @@ impl StorageManager {
     }
 
     /// Gets a reference to the underlying database connection
-    /// Used by visualization_panel for complex queries
-    pub(crate) fn get_connection(&self) -> &Connection {
+    /// Used by visualization_panel and query examples for complex queries
+    pub fn get_connection(&self) -> &Connection {
         &self.conn
     }
 }
