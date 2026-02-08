@@ -1,0 +1,35 @@
+TASK: Integration Validation
+Status: In Progress
+
+GOAL:
+Validate entire implementation for correctness, security vulnerabilities, and integration issues.
+Verify all 40 tests pass and create comprehensive integration tests.
+
+ACCEPTANCE CRITERIA:
+- [x] Read project requirements from CLAUDE.md
+- [x] Review all three core modules (security_scanner, telemetry_collector, storage_manager)
+- [ ] Run full test suite and verify all 40 tests pass
+- [ ] Write integration tests in tests/integration_tests.rs:
+  * End-to-end flow: capture -> scan -> store -> query
+  * Security scanner catches secrets in stored data
+  * Storage deduplication works with real telemetry
+  * Query APIs return correct security findings
+  * Edge cases and error conditions
+  * Clear, grep-friendly output
+- [ ] Security audit of all modules:
+  * SQL injection risks in storage_manager
+  * Regex DoS (ReDoS) risks in security_scanner
+  * Data leakage in telemetry_collector
+  * Missing input validation
+  * Unsafe error handling
+- [ ] Run full test suite again to verify all tests pass
+- [ ] Update PROGRESS.md Phase 5 (Integration Testing)
+- [ ] Move task file to completed_tasks/
+
+DEPENDENCIES:
+- security_scanner (completed)
+- telemetry_collector (completed)
+- storage_manager (completed)
+
+SECURITY FOCUS:
+This task specifically focuses on finding security vulnerabilities and integration issues.

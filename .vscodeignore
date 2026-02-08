@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+src-ts/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+target/**
+tests/**
+!out/**
+!Cargo.toml
+!Cargo.lock
+!src/**/*.rs
+!examples/**/*.rs

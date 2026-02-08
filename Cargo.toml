@@ -1,0 +1,17 @@
+[package]
+name = "vscode-agent-monitor"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = "0.4"
+tower-lsp = "0.20"
+tokio = { version = "1", features = ["full"] }
+rusqlite = { version = "0.38", features = ["bundled"] }
+blake3 = "1.5"
+
+[dev-dependencies]
+tempfile = "3.10"

@@ -1,0 +1,15 @@
+target/
+*.vsix
+context_files/
+.env
+node_modules/
+out/
+*.db
+*.db-shm
+*.db-wal
+demo_dashboard.html
+test-output.html
+.dashboard-tmp.html
+.telemetry_data.json
+.init_db.json
+agent_telemetry.db

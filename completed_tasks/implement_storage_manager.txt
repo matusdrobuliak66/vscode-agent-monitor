@@ -1,0 +1,59 @@
+TASK: Implement Storage Manager Module
+
+GOAL:
+Implement SQLite-based persistence with BLAKE3 hashing for content deduplication.
+Store telemetry data, security findings, and file hashes in a relational database.
+
+ACCEPTANCE CRITERIA:
+- Database initialization with proper schema (telemetry_logs, file_hashes, security_findings tables)
+- Store TelemetryData records with all fields
+- BLAKE3 hashing for file content deduplication
+- Query telemetry by timestamp range
+- Query telemetry by LSP method
+- Retrieve security findings for telemetry records
+- Handle duplicate content (same hash) efficiently
+- All tests pass with clear, grep-friendly output
+- Foreign key relationships properly established
+
+DEPENDENCIES:
+- security_scanner module (COMPLETED)
+- telemetry_collector module (COMPLETED)
+
+DATABASE SCHEMA:
+1. file_hashes table:
+   - id (PRIMARY KEY)
+   - hash (UNIQUE, BLAKE3)
+   - content (TEXT)
+
+2. telemetry_logs table:
+   - id (PRIMARY KEY)
+   - timestamp (INTEGER, Unix timestamp)
+   - method (TEXT)
+   - request_data_hash (FOREIGN KEY -> file_hashes.id)
+   - response_data_hash (FOREIGN KEY -> file_hashes.id, nullable)
+
+3. security_findings table:
+   - id (PRIMARY KEY)
+   - telemetry_id (FOREIGN KEY -> telemetry_logs.id)
+   - line_num (INTEGER)
+   - severity (TEXT: High/Medium/Low)
+   - pattern_type (TEXT: ApiKey/Password/HighEntropy)
+
+IMPLEMENTATION TASKS:
+1. Write comprehensive tests in tests/storage_tests.rs
+2. Implement src/storage_manager.rs with:
+   - init_db() - Initialize database and create tables
+   - store_telemetry() - Store TelemetryData with deduplication
+   - query_by_time() - Query records by timestamp range
+   - query_by_method() - Query records by LSP method
+   - get_security_findings() - Retrieve findings for a telemetry record
+3. Add storage_manager module to src/lib.rs
+4. Verify all tests pass
+5. Update PROGRESS.md Phase 3
+
+TECHNICAL NOTES:
+- Use rusqlite crate (already in Cargo.toml)
+- Use blake3 crate for hashing (already in Cargo.toml)
+- Foreign keys must be enabled in SQLite
+- Hash deduplication: Check if hash exists before inserting new content
+- Security findings use enums from security_scanner module

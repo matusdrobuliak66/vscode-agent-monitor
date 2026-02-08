@@ -1,0 +1,19 @@
+TASK: Implement Security Scanner Module
+STATUS: Pending
+ASSIGNED: Available
+DEPENDENCIES: None
+
+GOAL:
+Build security_scanner.rs that detects secrets, passwords, API keys, and high-entropy strings in captured context.
+
+ACCEPTANCE CRITERIA:
+- All tests in tests/security_scanner_tests.rs pass
+- Detects patterns: "sk-", "password", "api_key", high entropy
+- Returns structured results with line numbers and severity
+- No false negatives on test cases
+
+IMPLEMENTATION NOTES:
+- Start by writing failing tests first
+- Use regex crate for pattern matching
+- Calculate Shannon entropy for high-entropy detection
+- Return Vec<SecurityFinding> with fields: line_num, severity, pattern_type

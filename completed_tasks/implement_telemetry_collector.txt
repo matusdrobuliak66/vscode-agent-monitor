@@ -1,0 +1,29 @@
+TASK: Implement Telemetry Collector Module
+
+GOAL:
+Intercept LSP calls from agents to models, extract context, and timestamp each interaction.
+
+ACCEPTANCE CRITERIA:
+- Tests pass for capturing LSP method calls
+- Tests pass for extracting request/response data
+- Tests pass for timestamping interactions
+- Integration with security_scanner to scan captured context
+- Clear, grep-friendly test output
+- All tests must pass with `cargo test`
+
+DEPENDENCIES:
+- security_scanner module (Completed)
+
+IMPLEMENTATION DETAILS:
+- Use tower-lsp crate for LSP interception
+- Create TelemetryData struct with:
+  - timestamp (DateTime<Utc>)
+  - method (String)
+  - request_data (String)
+  - response_data (Option<String>)
+  - security_findings (Vec<SecurityFinding>)
+- Integrate with security_scanner to scan all captured context
+
+STATUS: In Progress
+ASSIGNED: Telemetry Specialist Agent
+START DATE: 2026-02-08
