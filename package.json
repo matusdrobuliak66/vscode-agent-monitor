@@ -3,7 +3,7 @@
   "displayName": "VSCode Agent Monitor",
   "description": "Monitor agent-to-model interactions and scan for security vulnerabilities",
   "version": "0.1.0",
-  "publisher": "local",
+  "publisher": "MatusDrobuliak",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -54,6 +54,10 @@
     "electron": "^28.3.3",
     "eslint": "^8.x",
     "typescript": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matusdrobuliak66/vscode-agent-monitor"
   },
   "dependencies": {}
 
