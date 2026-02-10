@@ -7,6 +7,7 @@ Monitor AI agent interactions in VSCode and scan for security vulnerabilities.
 - 🔍 **Real-time Monitoring**: Captures document changes and AI agent interactions
 - 🔒 **Security Scanning**: Automatically detects API keys, passwords, and secrets
 - 📊 **Visual Dashboard**: WebView dashboard showing telemetry and security findings
+- 🔎 **Event Browser**: Browse, filter, and inspect individual LSP interaction events
 - 💾 **SQLite Storage**: Persistent storage with BLAKE3 content deduplication
 - 🎨 **Dark Theme**: Native VSCode theme integration
 
@@ -32,6 +33,7 @@ Monitor AI agent interactions in VSCode and scan for security vulnerabilities.
 ## Commands
 
 - `Agent Monitor: Show Dashboard` - View telemetry and security findings
+- `Agent Monitor: Browse Events` - Browse and inspect captured LSP events with filtering and context view
 - `Agent Monitor: Show Logs` - See extension activity and debugging info
 - `Agent Monitor: Clear Data` - Delete telemetry database
 
@@ -76,6 +78,19 @@ The dashboard shows:
 - Unique files (BLAKE3 deduplication)
 - Security findings by severity
 - Detailed findings table
+
+### Event Browser
+
+Browse and inspect individual captured events:
+
+```
+Cmd+Shift+P → "Agent Monitor: Browse Events"
+```
+
+The event browser shows:
+- Captured LSP events with method, timestamp, and security finding count
+- Filter events by method
+- Inspect full request/response context and security findings per event
 
 ### Manual Database Initialization
 
