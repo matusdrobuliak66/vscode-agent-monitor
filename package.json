@@ -4,6 +4,7 @@
   "description": "Monitor agent-to-model interactions and scan for security vulnerabilities",
   "version": "0.1.0",
   "publisher": "MatusDrobuliak",
+  "icon": "scripts/logo.png",
   "engines": {
     "vscode": "^1.85.0"
   },
