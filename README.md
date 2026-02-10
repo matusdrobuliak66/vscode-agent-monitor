@@ -11,9 +11,9 @@ Monitor AI agent interactions in VSCode and scan for security vulnerabilities.
 - 💾 **SQLite Storage**: Persistent storage with BLAKE3 content deduplication
 - 🎨 **Dark Theme**: Native VSCode theme integration
 
-![palette](scripts/palette.png)
+![palette](https://raw.githubusercontent.com/matusdrobuliak66/vscode-agent-monitor/main/scripts/palette.png)
 
-![event_browser](scripts/event_browser.png)
+![event_browser](https://raw.githubusercontent.com/matusdrobuliak66/vscode-agent-monitor/main/scripts/event_browser.png)
 
 ## Installation
 

@@ -2,7 +2,7 @@
   "name": "vscode-agent-monitor",
   "displayName": "VSCode Agent Monitor",
   "description": "Monitor agent-to-model interactions and scan for security vulnerabilities",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "MatusDrobuliak",
   "icon": "scripts/logo.png",
   "engines": {
